@@ -66,7 +66,7 @@ public class CourseController {
         return ResponseEntity.status(HttpStatus.OK).body(courseService.findAll());
     }
 
-    @GetMapping
+    @GetMapping("/{courseId}")
     public ResponseEntity<Object> getOneCourse(@PathVariable(value = "courseId") UUID courseId) {
         Optional<CourseModel> courseModelOptional = courseService.findById(courseId);
         if (!courseModelOptional.isPresent()) {
